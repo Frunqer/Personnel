@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 基本的struts2的配置 -->
+<struts>
+<!-- 使用spring的插件 -->
+<constant name="struts.objectFactory" value="spring"></constant>
+<!-- 不使用struts2的模板 -->
+<constant name="struts.ui.theme" value="simple"></constant>
+<!-- 配置国际化 -->
+<constant name="struts.i18n.encoding" value="UTF-8" />  
+<constant name="struts.action.extension" value="action" />  
+<constant name="struts.serve.static.browserCache" value="false" />
+
+<package name="login" extends="struts-default" namespace="/">
+    <action name="login" class="loginaction">
+        <result name="success">/success.jsp</result>
+    </action>
+</package>
+</struts>

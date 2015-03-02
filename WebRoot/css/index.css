@@ -1,0 +1,51 @@
+* { margin: 0px; padding: 0px; font-size: 12px; }
+body { background: url("../images/bg01.gif") repeat; }
+.bg { position: absolute; left: 50%; top: 50%; background-color: #2d2d2d; border-radius: 1em; box-shadow: 0 0 7px 0 #555; }
+/*登录首页Css*/
+.main { width: 580px; height: 280px; display: table; margin-left: -290px; margin-top: -127px; }
+.main:after { clear: both; }
+.login { width: 300px; height: 220px; display: table; margin-top: 25px; margin-left: 30px; float: left; }
+.form_login { margin-top: 35px; display: table; }
+.form_login a { color: white; }
+.txt { width: 220px; height: 20px; border-radius: 0.5em; margin-left: 20px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 30px; position: relative; }
+.txt:focus { box-shadow: 0 0 7px 0 cornflowerblue; }
+.user_name { background: url("../images/login-locked-icon.png") no-repeat 10px center white; }
+.pass_word { background: url("../images/login-key-icon.png") no-repeat 10px center white; }
+.btn { width: 80px; height: 30px; border-radius: 2em; border: 0px; color: brown; background-color: #cbcbcb; -moz-transition: background-color 1s linear; -webkit-transition: background-color 1s linear; }
+.btn_login { margin-left: 60px; margin-bottom: 20px; }
+.btn:hover { background-color: #ed7e8b; }
+.reg { float: left; width: 220px; height: 220px; margin-top: 25px; border-left: 1px black solid; padding-left: 20px; }
+.btn_reg { margin-top: 18px; margin-left: 60px; }
+.error_msg { width: 235px; height: 20px; display: none; background: #000000; color: white; padding-left: 10px; padding-top: 3px; margin-left: 25px; margin-bottom: 20px; border: 3px solid gray; }
+
+.main_reg{
+    width:320px;
+    height: 400px;
+    display: table;
+    left: -1000px;
+    margin-left: -180px;
+    margin-top: -200px;
+}
+.title_reg{width:100%;text-align:center;color: white;font-weight: bold;font-size: 20px;display:inline-block;margin-top: 10px;}
+
+.reg_div{
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 100%;
+    height: auto;
+    display: table;
+}
+
+.reg_div ul{
+    list-style: none;
+    
+}
+.reg_div ul li{
+    margin-bottom: 10px;
+}
+.txt2 { width: 230px; height: 20px; border-radius: 0.5em; margin-left: 20px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;padding-left: 20px; position: relative; }
+.check_txt{width: 60px;}
+.btn_check{border-radius:0.5em;color: white; }
+.btn_go{margin-left: 20px;border-radius:0.5em;width: 120px;}
+/*遮罩层*/
+.shadow{height:100%;width: 100%;background-color: #000000;opacity: 0.5;z-index: 5000;position: fixed;left: 0px;top: 0px;  display: none;}
