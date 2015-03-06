@@ -1,5 +1,7 @@
 package com.personnel.bean.code;
 
+import java.sql.Timestamp;
+
 /**
  * 验证码信息表
  * @author zhouzhenjiang
@@ -8,8 +10,8 @@ package com.personnel.bean.code;
 public class Code {
 
     private int id;
-    private int code;
-    private String code_date;
+    private String  code;
+    private Timestamp code_date;
     private String email;
     public int getId() {
         return id;
@@ -17,16 +19,16 @@ public class Code {
     public void setId(int id) {
         this.id = id;
     }
-    public int getCode() {
+    public String getCode() {
         return code;
     }
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
-    public String getCode_date() {
+    public Timestamp getCode_date() {
         return code_date;
     }
-    public void setCode_date(String code_date) {
+    public void setCode_date(Timestamp code_date) {
         this.code_date = code_date;
     }
     public String getEmail() {
