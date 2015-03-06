@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="loginAction" class="com.personnel.action.login.LoginAction">
+	</bean>
+	<!-- 配置对应的dao类 -->
+	<bean id="regAction" class="com.personnel.action.login.RegisterAction">
+		<property name="registerDao">
+			<ref local="registerDao" />
+		</property>
+		<property name="codeDao">
+		  <ref local="codeDao"/>
+		</property>
+	</bean>
+	   <bean id="codeAction" class="com.personnel.action.login.CodeAction">
+        <property name="codeDao">
+            <ref local="codeDao" />
+        </property>
+    </bean>
+	
+	<!-- 配置注册Service -->
+	<bean id="registerDao" class="com.personnel.dao.impl.RegisterDaoImpl">
+		<property name="jdbcTemplate">
+			<ref local="jdbcTemplate" />
+		</property>
+	</bean>
+	<!-- 配置验证码Service -->
+	<bean id="codeDao" class="com.personnel.dao.impl.CodeDaoImpl">
+        <property name="jdbcTemplate">
+            <ref local="jdbcTemplate" />
+        </property>
+    </bean>
+
+</beans> 
