@@ -13,9 +13,7 @@
 <constant name="struts.action.extension" value="action" />  
 <constant name="struts.serve.static.browserCache" value="false" />
 
-<package name="login" extends="struts-default" namespace="/">
-    <action name="login" class="loginaction">
-        <result name="success">/success.jsp</result>
-    </action>
-</package>
+
+<!-- 导入其他struts文件 -->
+<include file="com/personnel/action/login/struts-login.xml"></include>
 </struts>

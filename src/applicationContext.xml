@@ -12,25 +12,38 @@
    </bean>
   
   <!-- 通过spring去加载C3P0的数据库-->
-  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"  
-        destroy-method="close">  
-        <property name="jdbcUrl" value="${db.url}"></property>  
-        <property name="driverClass" value="${db.driverClassName}"></property>  
-        <property name="user" value="${db.username}"></property>  
-        <property name="password" value="${db.password}"></property>  
-        <property name="maxPoolSize" value="40"></property>  
-        <property name="minPoolSize" value="1"></property>  
-        <property name="initialPoolSize" value="1"></property>  
-        <property name="maxIdleTime" value="20"></property>  
-  </bean>  
+<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"> 
+    <property name="driverClass" value="com.mysql.jdbc.Driver" /> 
+    <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/personnel" /> 
+    <property name="user" value="root" /> 
+    <property name="password" value="935800" /> 
+    <!-- 连接池启动时的初始值 --> 
+    <property name="initialPoolSize" value="5" /> 
+    <!-- 连接池的最大值 --> 
+    <property name="maxPoolSize" value="10" /> 
+    <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 --> 
+    <property name="minPoolSize" value="3" /> 
+    <!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 --> 
+    <property name="maxIdleTime" value="600" /> 
+    <property name="idleConnectionTestPeriod" value="360" /> 
+    <property name="preferredTestQuery" value="select 1" />   
+    <property name="acquireIncrement" value="5" />   
+    <property name="acquireRetryAttempts" value="50" />   
+        <property name="acquireRetryDelay" value="1000" />   
+        <property name="breakAfterAcquireFailure" value="true" />   
+     <property name="autoCommitOnClose" value="false" />   
+        <property name="testConnectionOnCheckout" value="true" />      
+        <property name="maxStatements" value="100" /> 
+        <property name="maxStatementsPerConnection" value="5" /> 
+</bean> 
    
   <!-- 配置JdbcTemplate -->
  <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
     <property name="dataSource">
-    <ref local="dataSource" />
+        <ref local="dataSource" />
     </property>
  </bean>
-  <bean id="loginaction" class="com.personnel.action.LoginAction"></bean>
-   
+ 
+ <import resource="applicationContext-login.xml"/>   
   
 </beans>  
