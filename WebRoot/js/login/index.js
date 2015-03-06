@@ -3,6 +3,8 @@
  */
 /*登录界面JS*/
 
+//邮箱的正则表达式
+
 var emailreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
 var isSubmit = false;
 $(function(){
@@ -104,10 +106,89 @@ $(function(){
         errorPlacement: function(error, element) {
                   error.appendTo(element.siblings("span"));
         }
-    })
-
-
-
+        
+    });
+    /*注册代码的提交*/
+    $("#regSubmit").click(function(){
+    	var code = $.trim($("#reg_code").val());
+    	var email = $.trim($("#reg_username").val());
+    	var pwd = $.trim($("#reg_pwd").val());
+    	if($("#reg_form").valid()){
+    		//判断是否输入验证码
+    		if(code == ""){
+    			callErrorDialog("验证码不能为空");
+    			return;
+    		}
+    		$(".shadow").show().showLoading();
+    		$.ajax({
+    			type:"post",
+    			url:"reg.action",
+    			data:{
+    				email:email,
+    				pwd:pwd,
+    				code:code
+    			},
+    			success:function(data){
+    				if(data == "success"){
+    					callSucceedDialog("注册成功");
+    					//跳转到企业门户首页
+    					ymPrompt.doHandler(go,false);
+    				}else if(data == "error"){
+    					callErrorDialog("注册失败，请重新注册");
+    				}else if(data == "验证码错误"){
+    					callErrorDialog("验证码错误")
+    				}
+    				$(".shadow").show().hideLoading().hide();
+    				
+    			}
+    		});
+    	}
+    	
+    });
+    
+    function go(){
+    	window.location.href="index.jsp";
+    }
+    var wait = 60;
+    var timer;
+    /*验证码倒计时*/
+    $("#reg_attach").click(function(){
+    	var email = $.trim($("#reg_username").val());
+    	if(email == ""){
+    		callErrorDialog("邮箱不能为空");
+    		return;
+    	}
+    	$(this).val(wait+"秒后获取").attr("disabled","disabled");
+    	
+    	timer = setInterval(coutDown, 1000);
+    	
+    	// 进行异步获取验证码
+    	$.ajax({
+    		type:"post",
+    		url:"code.action",
+    		data:{
+    			email:email
+    		},
+    		success:function(data){
+    			callSucceedDialog("验证码为："+data);
+    		}
+    	});
+    });
+    
+    function coutDown(){
+    	if(wait > 0){
+    		wait--;
+    		$("#reg_attach").val(wait+"秒后获取");
+    	}else{
+    		//如果小于0，恢复原状
+    		$("#reg_attach").val("获取验证码").removeAttr("disabled");
+    		wait=60;
+    		window.clearInterval(timer);
+    	}
+    }
+    
+    
+    
 });
 
 

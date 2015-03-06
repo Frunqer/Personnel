@@ -93,13 +93,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span style="display:block;color: white;margin-left: 20px"></span>
                 </li>
                 <li>
-                    <input type="text" id="reg_code" name="reg_code" class="txt2 check_txt" placeholder="验证码">
+                    <input type="text" id="reg_code" name="reg_code" class="txt2 check_txt" placeholder="验证码" maxlength="6">
                     <input type="button" id="reg_attach" name="reg_attach" class="btn btn_check" value="获取验证码">
                     <span style="display:block;color: white;margin-left: 20px"></span>
                 </li>
                 <li>
                     <input type="button" class="btn btn_go" value="登  录" id="goLogin">
-                    <input type="submit" class="btn btn_go" value="注  册" id="regSubmit">
+                    <input type="button" class="btn btn_go" value="注  册" id="regSubmit">
                 </li>
             </ul>
         </form>
