@@ -12,7 +12,7 @@ body { background: url("../images/bg01.gif") repeat; }
 .user_name { background: url("../images/login-locked-icon.png") no-repeat 10px center white; }
 .pass_word { background: url("../images/login-key-icon.png") no-repeat 10px center white; }
 .btn { width: 80px; height: 30px; border-radius: 2em; border: 0px; color: brown; background-color: #cbcbcb; -moz-transition: background-color 1s linear; -webkit-transition: background-color 1s linear; }
-.btn_login { margin-left: 60px; margin-bottom: 20px; }
+.btn_login { margin-left: 110px; margin-bottom: 20px; }
 .btn:hover { background-color: #ed7e8b; }
 .reg { float: left; width: 220px; height: 220px; margin-top: 25px; border-left: 1px black solid; padding-left: 20px; }
 .btn_reg { margin-top: 18px; margin-left: 60px; }

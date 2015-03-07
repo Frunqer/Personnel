@@ -28,7 +28,9 @@ $(function(){
 
     $(".btn_login").click(function(){
        //进行登录时的校验
-        var error_msg = $(".error_msg").text();
+        var error_msg = $.trim($(".error_msg").text());
+        var email =$.trim($("#email").val());
+        var password=$.trim($("#password").val());
         if(!isSubmit){
             //说明校验没通过
             if(error_msg=="") {
@@ -39,9 +41,37 @@ $(function(){
             }
         }else{
             //说明校验通过，这里使用ajaxSubmit()进行异步提交
+        	
             $(".shadow").show().showLoading();
             //自己写遮罩层
             //进行异步上传请求
+            $.ajax({
+            	type:"POST",
+            	url:"login.action",
+            	data:{
+            		email:email,
+            		pwd:password
+            	},
+            	success:function(data){
+            		$(".shadow").show().hideLoading().hide();
+            		if(data == "用户名不存在"){
+            			callErrorDialog("邮箱未注册");
+            		}else if(data == "error"){
+            			callErrorDialog("邮箱或密码错误");
+            		}else if(data == "success"){
+            			ymPrompt.succeedInfo(
+    					        {
+    					            message:"登录成功",
+    					            dragOut:false,
+    					            handler:function(){
+    					            	window.location.href="success.jsp";
+    					            }
+    					        }
+    					    );
+            		}
+            	}
+            	
+            });
         }
 
     });
@@ -62,8 +92,18 @@ $(function(){
 
     $(".form_login .pass_word").blur(function(){
         var password = $.trim($(this).val());
+        var username= $.trim($(".form_login .user_name").val());
         if(password == ""){
             $(".error_msg").html("请输入密码").fadeIn(1000);
+            isSubmit=false;
+        }else if(password.length <6){
+        	 $(".error_msg").html("密码不能小于6位").fadeIn(1000);
+             isSubmit=false;
+        } else if(username == ""){
+            $(".error_msg").html("请输入邮箱").fadeIn(1000);
+            isSubmit=false;
+        }else if(!emailreg.test(username)){
+            $(".error_msg").html("邮箱格式错误").fadeIn(1000);
             isSubmit=false;
         }else {
             $(".error_msg").fadeOut(1000);
@@ -129,10 +169,16 @@ $(function(){
     				code:code
     			},
     			success:function(data){
-    				if(data == "success"){
-    					callSucceedDialog("注册成功");
-    					//跳转到企业门户首页
-    					ymPrompt.doHandler(go,false);
+    				if(data == "用户名已存在"){
+    					callErrorDialog("用户名已存在");
+    				}else if(data == "success"){
+    					ymPrompt.succeedInfo(
+    					        {
+    					            message:"注册成功",
+    					            dragOut:false,
+    					            handler:go
+    					        }
+    					    );
     				}else if(data == "error"){
     					callErrorDialog("注册失败，请重新注册");
     				}else if(data == "验证码错误"){
@@ -147,7 +193,7 @@ $(function(){
     });
     
     function go(){
-    	window.location.href="index.jsp";
+    	window.location.href="http://www.baidu.com";//跳转到首页
     }
     var wait = 60;
     var timer;
@@ -186,6 +232,8 @@ $(function(){
     		window.clearInterval(timer);
     	}
     }
+    
+    
     
     
     

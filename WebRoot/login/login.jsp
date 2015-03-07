@@ -53,7 +53,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </table>
                 <input type="checkbox" style="margin:20px 0px 0px 20px;" id="remind"><span
                     style="color:white;margin: 20px 0px 0px 2px;"><label for="remind">记住账户</label></span>
-                <a href="#">忘记密码</a>
                 <input type="button" value="登  录" class="btn btn_login">
 
             </form>
