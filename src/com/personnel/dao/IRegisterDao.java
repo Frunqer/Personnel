@@ -29,4 +29,11 @@ public interface IRegisterDao {
      * @return
      */
     public List<UserInfo> findAllUserInfos();
+    
+    /**
+     * 根据email获取对应的UserInfo对象
+     * @param email
+     * @return
+     */
+    public int getUserByEmail(String email);
 }

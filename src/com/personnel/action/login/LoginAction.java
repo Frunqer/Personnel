@@ -1,6 +1,11 @@
 package com.personnel.action.login;
 
-import com.opensymphony.xwork2.ActionSupport;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
+
+import com.personnel.action.mysupport.MyActionSupport;
+import com.personnel.dao.ILoginDao;
+import com.personnel.dao.IRegisterDao;
 
 
 
@@ -9,14 +14,63 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author zhouzhenjiang
  *
  */
-public class LoginAction extends ActionSupport {
+public class LoginAction extends MyActionSupport {
     
     private static final long serialVersionUID = 1L;
+    
+    private ILoginDao loginDao;
+    
+    private IRegisterDao registerDao;
+
+    public void setLoginDao(ILoginDao loginDao) {
+        this.loginDao = loginDao;
+    }
+
+    public void setRegisterDao(IRegisterDao registerDao) {
+        this.registerDao = registerDao;
+    }
 
     @Override
     public String execute() throws Exception {
-        //测试成功
-        return ActionSupport.SUCCESS;
+        
+        
+        response.setCharacterEncoding("UTF-8");
+        String uEmail = request.getParameter("email");
+        
+        String uPwd = request.getParameter("pwd");
+        
+        //实现多浏览器共用一个session对象
+        HttpSession session = request.getSession();
+       
+        
+        int isExist = registerDao.getUserByEmail(uEmail);
+        
+        String message= "";
+        if(isExist > 0){
+            //说明存在
+            int isOK = loginDao.confirmUser(uEmail, uPwd);
+            
+            if(isOK > 0){
+                //说明密码正确
+                message ="success";
+                //登录成功，后将用户加入到session中，并设置session的时间限制
+                //将登录的用户对象存放到session中
+                session.setAttribute("loginUser", uEmail);
+                Cookie cookie = new Cookie("JSESSIONID",session.getId());//把系统的session id的覆盖掉  
+                cookie.setMaxAge(5*360);  
+                cookie.setPath("/Personnel");  
+                response.addCookie(cookie);
+                
+            }else{
+                //说明密码错误
+                message = "error" ;
+            }
+        }else{
+            //说明不存在改用户
+            message="用户不存在";
+        }
+        response.getWriter().write(message);
+        return null;
     }
 
 }

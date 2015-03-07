@@ -4,6 +4,7 @@ import java.sql.Types;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.personnel.bean.user.UserInfo;
@@ -36,6 +37,14 @@ public class RegisterDaoImpl implements IRegisterDao {
     public List<UserInfo> findAllUserInfos() {
         logger.info("[RegisterDaoImpl]查询所有的用户信息");
         return null;
+    }
+
+    @Override
+    public int getUserByEmail(String email) {
+        
+        String sql = "select count(*) from core_user where email = ? ";
+       return  jdbcTemplate.queryForInt(sql, new Object[]{email}, new int[]{Types.VARCHAR});
+        
     }
 
 }
