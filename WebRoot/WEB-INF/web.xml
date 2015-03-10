@@ -34,6 +34,6 @@
   
   <!-- 设置session的实效时间为15分钟 -->
   <session-config>
-        <session-timeout>5</session-timeout>
+        <session-timeout>15</session-timeout>
   </session-config>
 </web-app> 
