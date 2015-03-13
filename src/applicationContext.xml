@@ -44,6 +44,8 @@
     </property>
  </bean>
  
- <import resource="applicationContext-login.xml"/>   
+ <import resource="applicationContext-login.xml"/> 
+ <import resource="applicationContext-home.xml"/>  
+  <import resource="applicationContext-menulist.xml"/>    
   
 </beans>  

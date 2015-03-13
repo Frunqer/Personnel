@@ -28,11 +28,14 @@
 		<!-- 配置全局的返回result -->
 		<global-results>
 		  <result name="relogin">/relogin.html</result>
+		  <result name="error">/error/error.html</result>
 		</global-results>
-
 	</package>
 
 
 	<!-- 导入其他struts文件 -->
 	<include file="com/personnel/action/login/struts-login.xml"></include>
+	<include file="com/personnel/action/home/struts-home.xml"></include>
+	<include file="com/personnel/action/menulist/struts-menulist.xml"></include>
+	<include file="com/personnel/action/page/struts-page.xml"></include>
 </struts>
