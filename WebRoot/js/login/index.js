@@ -64,7 +64,9 @@ $(function(){
     					            message:"登录成功",
     					            dragOut:false,
     					            handler:function(){
-    					            	window.location.href="home/home.jsp";
+
+    					                /*页面初始化的时候向后台*/
+    					            	window.location.href="notice.action?action=top";
     					            }
     					        }
     					    );
