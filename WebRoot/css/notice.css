@@ -1,0 +1,100 @@
+/*公告部分相关的样式信息*/
+
+.single_notice{
+    box-shadow: 0 0 7px 0 #555;
+    border-radius:1em;
+    border:1px dashed #000000;
+}
+
+.single_notice span{
+    font-family: WebFont;
+    margin-left: 10px;
+    display: block;
+    margin-top: 10px;
+}
+
+.single_notice span a{
+    color: #000000;;
+    text-decoration: none;
+}
+
+.single_notice span a:hover{
+    color: blue;
+    text-decoration: underline;
+}
+
+.list_notice{
+    box-shadow: 0 0 7px 0 #555;
+    border-radius:1em;
+    border:1px dashed #000000;
+}
+
+.spantxt{
+	font-family: WebFont;
+    margin-left: 10px;
+    display: block;
+    margin-top: 10px;
+}
+
+.spantxt a{
+	color: #000000;;
+    text-decoration: none;
+}
+.spantxt span a:hover{
+    color: blue;
+    text-decoration: underline;
+}
+.n_title{
+    font-family: WebFont;
+    font-size: large;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-right:10px; 
+}
+
+hr{
+    border: 1px dashed #000000;
+}
+.n_content {
+    width: 85%;
+    height: auto;
+    margin: 20px auto;
+
+}
+
+.n_content p{
+    line-height: 28px;
+    font-size: 16px;
+    color: #444;
+    text-indent: 2em;
+    padding-bottom: 20px;
+}
+
+#list{
+	width: 80%;
+	height: auto;
+	margin-left: 30px;
+}
+
+#list ul{
+	margin-top:20px;
+	margin-left: 20px;
+    background: url("../images/top_ten.gif") no-repeat;
+    padding-left: 20px;
+   list-style: none;
+   margin-bottom: 20px;
+}
+
+#list ul li{
+  line-height: 25px;
+}
+
+#list ul li a{
+    color: #000000;
+    text-decoration: none;
+}
+
+#list ul li a:hover{
+    color: blue;
+    text-decoration: underline;
+}

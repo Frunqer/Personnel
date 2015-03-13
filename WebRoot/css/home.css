@@ -144,6 +144,15 @@
 	line-height: 25px;
 }
 
+.notice ul li a{
+	color: #000000;
+}
+
+.notice ul li a:hover{
+	color: blue;
+	text-decoration: underline;
+}
+
 .chekin span {
 	font-family: WebFont;
 	padding-top: 10px;
