@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -32,6 +33,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <s:if test="#session.loginUser != null">
+    <script>
+      window.location.href="home/home.jsp";
+    </script>
+  </s:if>
+  
    <!--登录层开始-->
 <div class="main bg" id="main_login">
     <div class="login" id="div_login">
