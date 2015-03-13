@@ -27,16 +27,16 @@
 	<!-- 头部导航层 -->
 	<div class="head">
 		<ul>
-			<li><a href="#"><img src="images/head/filebg.png">
+			<li><a href="menu.action?num=1"><img src="images/head/filebg.png">
 			</a>
 			</li>
-			<li><a href="#"><img src="images/head/salary.png">
+			<li><a href="menu.action?num=2"><img src="images/head/salary.png">
 			</a>
 			</li>
-			<li><a href="#"><img src="images/head/check.png">
+			<li><a href="menu.action?num=3"><img src="images/head/check.png">
 			</a>
 			</li>
-			<li><a href="#"><img src="images/head/work.png">
+			<li><a href="menu.action?num=4"><img src="images/head/work.png">
 			</a>
 			</li>
 		</ul>

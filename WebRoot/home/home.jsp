@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"  %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,26 +38,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div id="home_main">
+    <div id="home_main">&nbsp; 
     <!-- 头部导航层 -->
-   <jsp:include page="head.jsp"></jsp:include>
+    <jsp:include page="head.jsp"></jsp:include>
     <div id="home_content">
     <!-- 首页右边层 -->
-    <div class="home_left">
-        <!-- 用户头像和昵称 -->
-        <div class="home_img">
-            <img src="images/head/head_img.jpg" width="80px" height="80px">
-            <span>zzjmay@qq.com</span>
-        </div>
-        <!-- 在每个分栏下可以进行的操作 -->
-        <div class="left_menu">
-            <ul>
-                <li><a  href="#">基 本 资 料</a></li>
-                <li><a href="#">公 司 部 门</a></li>
-                <li><a href="#">联 系 同 事</a></li>
-            </ul>
-        </div>
-    </div>
+    <jsp:include page="home_left.jsp"></jsp:include>
     <!-- 首页内容展示层-->
     <div class="home_right">
         <div class="banner">
@@ -75,15 +62,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <ul class="banner-circle"></ul>
         </div>
         <div class="notice">
-            <span>企业公告</span>
-            <ul>
-                <li> 春节放假通知    2015-01-02</li>
-                <li> 人事信息更新通知    2015-01-02</li>
-                <li> 员工考勤制度须知    2015-01-02</li>
-                <li> 薪酬变更通知    2015-01-02</li>
-                <li> 春节放假通知    2015-01-02</li>
-                <li> 员工考勤制度须知 2015-01-02</li>
-            </ul>
+            <span>企业公告</span><span><a href="notice.action?action=more">more</a></span>
+            
+            
+            <s:if test="#session.notices!=null">
+                <ul>
+                <s:iterator  value="#session.notices" var="notice">
+                    <li>
+                    	<a href="notice.action?action=single&id=<s:property value="id"/>">
+                    		<s:property value="title" />
+                    	</a></li>
+                </s:iterator>
+                </ul>
+            </s:if>
+            <s:else>
+                <span>对不起暂时没有公告！</span>
+            
+            </s:else>
+            
         </div>
         <div class="chekin">
             <span>员工签到</span>
