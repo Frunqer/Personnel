@@ -6,6 +6,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+import com.personnel.bean.user.UserInfo;
 
 /**
  * 用于判断用户是否登录的拦截器
@@ -39,10 +40,10 @@ public class LoginInterceptor extends AbstractInterceptor {
                 // session过期,转向session过期提示页,最终跳转至登录页面
                 return "relogin";
             } else {
-                String username = (String) ServletActionContext.getRequest()
+                UserInfo userInfo  = (UserInfo) ServletActionContext.getRequest()
                         .getSession().getAttribute("loginUser");
                 // 验证是否已经登录
-                if (username == null) {
+                if (userInfo == null) {
                     // 尚未登录,跳转至登录页面
                     return "relogin";
                 } else {

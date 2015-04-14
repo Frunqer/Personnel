@@ -51,7 +51,7 @@
 			<!-- 首页右边层 -->
 			<jsp:include page="../home/home_left.jsp"></jsp:include>
 			<!-- 通知列表展示页 -->
-			<div class="home_right list_notice">
+			<div class="home_right right_bg list_notice">
 				<!-- 面包屑导航  -->
 				<span class="spantxt"><a href="home/home.jsp">首页</a> -> 公告列表</span>
 

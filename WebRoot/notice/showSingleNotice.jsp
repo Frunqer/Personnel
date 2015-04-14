@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- 首页右边层 -->
     <jsp:include page="../home/home_left.jsp"></jsp:include>
     <!-- 首页内容展示层-->
-    <div class="home_right single_notice">
+    <div class="home_right  right_bg single_notice">
         <!-- 面包屑导航  -->
         <span><a href="home/home.jsp">首页</a> -> <a href="notice.action?action=more">公告列表</a> -> 公告</span>
         <!--公告标题部分 -->

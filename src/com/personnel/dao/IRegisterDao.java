@@ -35,5 +35,7 @@ public interface IRegisterDao {
      * @param email
      * @return
      */
-    public int getUserByEmail(String email);
+    public UserInfo getUserByEmail(String email);
+    
+    
 }

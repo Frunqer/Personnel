@@ -83,8 +83,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div class="chekin">
             <span>员工签到</span>
-            <!-- 通过读数据库中的打卡的数据，防止因为刷新而重新进行打卡  -->
-            <a class="sign" href="#">
+            <!-- 打卡机，仿造京东的内部打卡系统 -->
+            <a class="sign" href="checkin.action?action=daka">
             <!-- 显示签到的日期 -->
                 <span class="sign_number"></span>
             </a>

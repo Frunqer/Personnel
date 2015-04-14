@@ -54,7 +54,7 @@ $(function(){
             	},
             	success:function(data){
             		$(".shadow").show().hideLoading().hide();
-            		if(data == "用户名不存在"){
+               		if(data == "noexist"){
             			callErrorDialog("邮箱未注册");
             		}else if(data == "error"){
             			callErrorDialog("邮箱或密码错误");

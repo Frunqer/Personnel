@@ -29,16 +29,16 @@
 	<div class="home_left">
 		<!-- 用户头像和昵称 -->
 		<div class="home_img">
-			<img src="images/head/head_img.jpg" width="80px" height="80px">
+			<a href="basicinfo/change_head.jsp"><img src='<s:property value="#session.loginUser.head_image"/>' width="80px" height="80px"></a>
 			<!-- 可以用来链接到基本资料 -->
-			<span>${session.loginUser }</span>
+			<span id="user_email">${session.loginUser.email }</span>
 		</div>
 		<!-- 在每个分栏下可以进行的操作 -->
 		<div class="left_menu">
 			<ul>
 				<s:if test="#session.menuLevel != null">
 					<s:if test="#session.menuLevel ==1">
-						<li><a href="#">基 本 资 料</a>
+						<li><a href="basicinfo/basicInfoShow.jsp">基 本 资 料</a>
 						</li>
 						<li><a href="#">公 司 部 门</a>
 						</li>
@@ -46,7 +46,7 @@
 						</li>
 					</s:if>
 					<s:elseif test="#session.menuLevel ==2">
-						<li><a href="#">薪 酬 模 板</a>
+						<li><a href="salary/salary_model.jsp">薪 酬 模 板</a>
 						</li>
 						<li><a href="#">薪 酬 变 更</a>
 						</li>
@@ -54,9 +54,9 @@
 						</li>
 					</s:elseif>
 					<s:elseif test="#session.menuLevel ==3">
-						<li><a href="#">考 勤 记 录</a>
+						<li><a href="checkin.action?action=list">考 勤 记 录</a>
 						</li>
-						<li><a href="#">考 勤 申 请</a>
+						<li><a href="#">打   卡   机</a>
 						</li>
 						<li><a href="#">请 假 申 请</a>
 						</li>

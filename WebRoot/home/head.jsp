@@ -43,7 +43,7 @@
 		<!-- 用户名显示部位 -->
 		<div class="head_user">
 			<s:if test="#session.loginUser!=null">
-			      <s:property value="#session.loginUser"/> /<a href="#">退出</a>
+			    您好：  <s:property value="#session.loginUser.email"/> /<a href="user.action?action=logout" style="text-decoration: none;color: black;">退出</a>
 			</s:if>
 			<s:else>
 				<script>

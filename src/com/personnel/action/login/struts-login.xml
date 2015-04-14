@@ -3,9 +3,9 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
     "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-	<package name="default" namespace="/" extends="struts-default">
-		<action name="login" class="loginaction">
-			<result name="success">/success.jsp</result>
+	<package name="default" namespace="/" extends="commondefalut">
+		<action name="login" class="loginAction">
+			<result name="input">/login/login.jsp</result>
 		</action>
 		<action name="reg" class="regAction">
 		  <result name="input">/login/login.jsp</result>
@@ -13,6 +13,5 @@
 		<action name="code" class="codeAction">
 		  <result name="input">/login/login.jsp</result>
 		</action>
-	</package>
-	
+	</package>	
 </struts>

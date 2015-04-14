@@ -99,6 +99,8 @@
 .home_right {
 	width: 60%;
 	height: 500px;
+	display:table;
+	padding-right:20px;
 	margin-left: 60px;
 	margin-top: 40px;
 	float: left;

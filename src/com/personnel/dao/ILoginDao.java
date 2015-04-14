@@ -14,4 +14,11 @@ public interface ILoginDao {
      * @return
      */
     public int confirmUser(String email,String password);
+    
+    /**
+     * 判断是否存在于数据库中
+     * @param email
+     * @return
+     */
+    public int isExist(String email);
 }

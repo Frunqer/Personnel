@@ -22,4 +22,11 @@ public class LoginDaoImpl implements ILoginDao {
         
     }
 
+    @Override
+    public int isExist(String email) {
+        String sql = "select count(*) from core_user where email=?";
+        
+        return jdbcTemplate.queryForInt(sql, new Object[]{email},new int[]{Types.VARCHAR});
+    }
+
 }

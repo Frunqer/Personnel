@@ -4,6 +4,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 import com.personnel.action.mysupport.MyActionSupport;
+import com.personnel.bean.user.UserInfo;
 import com.personnel.dao.ILoginDao;
 import com.personnel.dao.IRegisterDao;
 
@@ -42,20 +43,20 @@ public class LoginAction extends MyActionSupport {
         //实现多浏览器共用一个session对象
         HttpSession session = request.getSession();
        
-        
-        int isExist = registerDao.getUserByEmail(uEmail);
+        boolean isExist = loginDao.isExist(uEmail)>0?true:false;
         
         String message= "";
-        if(isExist > 0){
+        if(isExist){
             //说明存在
             int isOK = loginDao.confirmUser(uEmail, uPwd);
             
             if(isOK > 0){
+                UserInfo userInfo  = registerDao.getUserByEmail(uEmail);
                 //说明密码正确
                 message ="success";
                 //登录成功，后将用户加入到session中，并设置session的时间限制
                 //将登录的用户对象存放到session中
-                session.setAttribute("loginUser", uEmail);
+                session.setAttribute("loginUser", userInfo);
                 Cookie cookie = new Cookie("JSESSIONID",session.getId());//把系统的session id的覆盖掉  
                 cookie.setMaxAge(5*360);  
                 cookie.setPath("/Personnel");  
@@ -67,7 +68,7 @@ public class LoginAction extends MyActionSupport {
             }
         }else{
             //说明不存在改用户
-            message="用户不存在";
+            message="noexist";
         }
         response.getWriter().write(message);
         return null;

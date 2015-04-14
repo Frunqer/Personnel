@@ -15,6 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 <meta charset="UTF-8">
 
 	<link rel="stylesheet" href="css/index.css"/>
+	<link rel="stylesheet" href="css/public.css"/>
     <link rel="stylesheet" href="css/skin/black/ymPrompt.css"/>
     <link rel="stylesheet" href="css/showLoading.css"/>
 

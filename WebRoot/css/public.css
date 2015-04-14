@@ -3,7 +3,10 @@
 *{
 	margin: 0px;
 	padding: 0px;
+	font-size: 9px;
 }
+body { background: url("../images/bg01.gif") repeat; }
+.bg { position: absolute; left: 50%; top: 50%; background-color: #2d2d2d; border-radius: 1em; box-shadow: 0 0 7px 0 #555; }
 /*回到顶部*/
 .toTop {
 	width: 50px;
@@ -32,3 +35,29 @@
     src: url(../font/hanyi.ttf)  format('truetype');
     font-weight: normal;
 }
+.right_bg{
+    box-shadow: 0 0 7px 0 #555;
+    border-radius:1em;
+    border:1px dashed #000000;
+}
+
+.spantxt{
+    font-family: WebFont;
+    margin-left: 10px;
+    display: block;
+    margin-top: 10px;
+}
+
+.spantxt a{
+    text-decoration: none;
+}
+.spantxt a:hover{
+    color: blue;
+    text-decoration: underline;
+}
+.btn:hover { background-color: #ed7e8b; }
+
+.btn { width: 80px; height: 30px; border-radius: 2em; border: 0px; color: brown; background-color: #cbcbcb; -moz-transition: background-color 1s linear; -webkit-transition: background-color 1s linear; }
+
+/*遮罩层*/
+.shadow{height:100%;width: 100%;background-color: #000000;opacity: 0.5;z-index: 5000;position: fixed;left: 0px;top: 0px;  display: none;}

@@ -12,9 +12,12 @@
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.action.extension" value="action" />
 	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.multipart.maxSize" value="2147483648" />
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
 
 	<!-- 配置全局的拦截器 -->
-	<package name="commdefault" extends="struts-default" namespace="/">
+	<package name="commondefalut" extends="struts-default" namespace="/">
 		<interceptors>
 			<!-- 配置判断是否有登陆用户的拦截器 -->
 			<interceptor name="loginInter"
@@ -34,8 +37,8 @@
 
 
 	<!-- 导入其他struts文件 -->
-	<include file="com/personnel/action/login/struts-login.xml"></include>
 	<include file="com/personnel/action/home/struts-home.xml"></include>
+	<include file="com/personnel/action/login/struts-login.xml"></include>
 	<include file="com/personnel/action/menulist/struts-menulist.xml"></include>
 	<include file="com/personnel/action/page/struts-page.xml"></include>
 </struts>

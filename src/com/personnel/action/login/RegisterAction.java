@@ -46,9 +46,9 @@ public class RegisterAction extends MyActionSupport {
 
         String message = "";
         // 判断email名称是否重复
-        int i = confirmUniqueForEmail(email);
+        UserInfo userInfo2 = registerDao.getUserByEmail(email);
 
-        if (i > 0) {
+        if (userInfo2 !=null ) {
             // 说明存在用户名
             message = "用户名已存在";
         } else {
@@ -74,13 +74,5 @@ public class RegisterAction extends MyActionSupport {
         return null;
     }
 
-    /**
-     * 用来判断用户注册的用户名是否唯一
-     * 
-     * @param email
-     */
-    private int confirmUniqueForEmail(String email) {
-        return registerDao.getUserByEmail(email);
-    }
 
 }

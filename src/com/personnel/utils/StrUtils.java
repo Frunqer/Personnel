@@ -2,6 +2,7 @@ package com.personnel.utils;
 
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,6 +42,24 @@ public class StrUtils {
         }
         date = java.sql.Date.valueOf(dateStr);
         return date;
+    }
+    
+    public static boolean morningTimestamp(){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        DateFormat format  = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String yearAndMonth = format.format(timestamp).substring(0, 10);
+        String morningString =yearAndMonth+" 09:00:00";
+        Timestamp morning = Timestamp.valueOf(morningString);
+        return timestamp.after(morning);
+    }
+    
+    public static boolean nightTimestamp(){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        DateFormat format  = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String yearAndMonth = format.format(timestamp).substring(0, 10);
+        String morningString =yearAndMonth+" 18:00:00";
+        Timestamp night = Timestamp.valueOf(morningString);
+        return timestamp.before(night);
     }
 
 }

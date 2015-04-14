@@ -1,10 +1,6 @@
 /*公告部分相关的样式信息*/
 
-.single_notice{
-    box-shadow: 0 0 7px 0 #555;
-    border-radius:1em;
-    border:1px dashed #000000;
-}
+
 
 .single_notice span{
     font-family: WebFont;
@@ -23,27 +19,8 @@
     text-decoration: underline;
 }
 
-.list_notice{
-    box-shadow: 0 0 7px 0 #555;
-    border-radius:1em;
-    border:1px dashed #000000;
-}
 
-.spantxt{
-	font-family: WebFont;
-    margin-left: 10px;
-    display: block;
-    margin-top: 10px;
-}
 
-.spantxt a{
-	color: #000000;;
-    text-decoration: none;
-}
-.spantxt span a:hover{
-    color: blue;
-    text-decoration: underline;
-}
 .n_title{
     font-family: WebFont;
     font-size: large;

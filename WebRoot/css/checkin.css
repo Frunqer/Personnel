@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+.monthSelect{
+    width: 80px;
+    height: 30px;
+    border-radius:0.5em;
+    background-color: white;
+    border:1px solid #ccc;
+    box-sizing: content-box;
+    margin-right:30px;
+    font-size: 14px;
+    font-family: "宋体";
+}
+table{margin:0 auto; width:600px} 
+table tr th{ height:28px; line-height:28px; background:#0066FF;color: #fff} 
+table.stripe tr td{ height:28px; line-height:28px; text-align:center;background:#FFF;vertical-align:middle;} 
+/* css注释：默认css背景被白色 */ 
+table.stripe tr.alt td { background:#F2F2F2;} 
+/* css 注释：默认隔行背景颜色 */ 
+table.stripe tr.over td {background:#EEECEB;} 
