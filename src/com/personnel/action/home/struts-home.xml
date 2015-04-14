@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="home" namespace="/" extends="commondefalut">
+        <action name="notice" class="noticeAction">
+            <result name="input">/home/home.jsp</result>
+            <result name="notice_success" type="redirect">/home/home.jsp</result>
+            <result name="get_success">/notice/showSingleNotice.jsp</result>
+            <result name="go_list">/notice/showListNotice.jsp</result>
+        </action>
+        <action name="upload" class="uploadAction">
+            <result name="input">/basicinfo/change_head.jsp</result>
+        </action>
+        <action name="user" class="userAction">
+            <result name="input">/home/home.jsp</result>
+            <result name="img_success" type="redirect" >/basicinfo/change_head.jsp</result>
+            <result name="logout" type="redirect" >/index.jsp</result>
+        </action>
+        <action name="checkin" class="checkinAction">
+            <result name="input">/home/home.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">checkin</param>
+                <param name="action">list</param>
+            </result>
+            <result name="listview" type="redirect">/checkin/checkinlist.jsp</result>
+            
+        </action>
+    </package>
+</struts>
