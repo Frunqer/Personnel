@@ -1,6 +1,7 @@
 package com.personnel.action.login;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ServletResponseAware;
@@ -44,11 +45,12 @@ public class RegisterAction extends MyActionSupport {
 
         String code = request.getParameter("code");
 
+        HttpSession session = request.getSession();
         String message = "";
         // 判断email名称是否重复
-        UserInfo userInfo2 = registerDao.getUserByEmail(email);
+        boolean isExist = registerDao.isExist(email)>0?true:false;
 
-        if (userInfo2 !=null ) {
+        if (isExist) {
             // 说明存在用户名
             message = "用户名已存在";
         } else {
@@ -60,7 +62,7 @@ public class RegisterAction extends MyActionSupport {
                 userInfo.setPassword(pwd);
                 // 将数据插入到数据库中
                 int result = registerDao.save(userInfo);
-
+                session.setAttribute("loginUser", userInfo);
                 if (result > 0) {
                     message = "success";
                 } else {

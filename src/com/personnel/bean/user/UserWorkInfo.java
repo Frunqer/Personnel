@@ -1,6 +1,5 @@
 package com.personnel.bean.user;
 
-import com.sun.mail.imap.protocol.UID;
 
 /**
  *用户工作信息表

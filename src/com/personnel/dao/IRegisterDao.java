@@ -37,5 +37,10 @@ public interface IRegisterDao {
      */
     public UserInfo getUserByEmail(String email);
     
-    
+    /**
+     * 判断是否存在于数据库中
+     * @param email
+     * @return
+     */
+    public int isExist(String email);
 }

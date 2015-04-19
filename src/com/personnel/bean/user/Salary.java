@@ -1,6 +1,6 @@
 package com.personnel.bean.user;
 
-import org.hibernate.validator.constraints.Email;
+
 
 /**
  * 薪酬类

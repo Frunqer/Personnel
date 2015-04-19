@@ -57,7 +57,7 @@ public class CheckinAction extends MyActionSupport {
     }
 
     /**
-     * 获取当月的考勤记录
+     * 获取搜索月的考勤记录
      * @return
      */
 
@@ -71,13 +71,24 @@ public class CheckinAction extends MyActionSupport {
         if(monthStr == null){
             monthStr =month<10?"0"+month:month+"";
         }
+        String type = request.getParameter("type");
         
         HttpSession session = request.getSession();
         UserInfo userInfo = (UserInfo) session.getAttribute("loginUser");
         List<Checkin> checkinList = checkinDao.getAllByUser(userInfo.getEmail(), monthStr);
         session.setAttribute("checkinList", checkinList);
+        session.setAttribute("month", monthStr);
+        logger.info("###########"+month);
+        if(type!=null && "sync".equals(type)){
+            //进行异步提交
+            logger.info("进行了异步操作");
+            return null;
+        }else{
+            //进行同步提交
+            logger.info("进行了同步操作");
+            return "listview";
+        }
         
-        return "listview";
     }
 
 
@@ -96,7 +107,10 @@ public class CheckinAction extends MyActionSupport {
         HttpSession session = request.getSession();
         UserInfo userInfo = (UserInfo) session.getAttribute("loginUser");
         session.setAttribute("menuLevel", 3);
-     
+        
+        session.setAttribute("month", month);
+        logger.info("*********"+month);
+        
         boolean isExist = checkinDao.isExistForEmail(userInfo.getEmail(), monthStr, day)>0?true:false;
         int update=-1;
         if(isExist){

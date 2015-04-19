@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
          <!-- 图片显示位置  -->            
             <div class="image_local">
-               <img alt="头像" src="${session.loginUser.head_image }" width="160px" height="160px" id="headImage" title="${session.loginUser.email }">
+               <img alt="头像" src='<s:property value="#session.loginUser.head_image" default="upload/default_head.png"/>' width="160px" height="160px" id="headImage" title="${session.loginUser.email }">
             </div>
             <input type="button" class="btn btnUpload" value="上  传" onclick="comfirmUpdate()" />
     </div>

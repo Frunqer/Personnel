@@ -29,7 +29,7 @@
 	<div class="home_left">
 		<!-- 用户头像和昵称 -->
 		<div class="home_img">
-			<a href="basicinfo/change_head.jsp"><img src='<s:property value="#session.loginUser.head_image"/>' width="80px" height="80px"></a>
+			<a href="basicinfo/change_head.jsp"><img src='<s:property value="#session.loginUser.head_image" default="upload/default_head.png"/>' width="80px" height="80px"></a>
 			<!-- 可以用来链接到基本资料 -->
 			<span id="user_email">${session.loginUser.email }</span>
 		</div>

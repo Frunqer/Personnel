@@ -26,17 +26,16 @@
 
 <link rel="stylesheet" href="css/skin/black/ymPrompt.css" />
 <link rel="stylesheet" href="css/showLoading.css" />
-
+<link rel="stylesheet" href="css/page/msgbox.css" />
 <link rel="stylesheet" href="css/date/jquery-ui.css" />
 
 <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="js/home/home.js"></script>
 <script type="text/javascript" src="js/checkin.js"></script>
-<!-- 导入验证框架 -->
-<script type="text/javascript" src="js/jquery.validate.js"></script>
 <script type="text/javascript" src="js/ymPrompt.js"></script>
 <!--自定义弹窗提示插件-->
 <script type="text/javascript" src="js/myalert.js"></script>
+<script type="text/javascript" src="js/page/msgbox.js"></script>
 <!--遮罩提示插件-->
 <script type="text/javascript" src="js/jquery.showLoading.js"></script>
 </head>
@@ -70,8 +69,13 @@
 				                <option value="11">11月</option>
 				                <option value="12">12月</option>
 				            </select>
-				            <input type="button" class="btn" value="搜  索">
+				            <input type="button" class="btn checkin_search" value="搜  索">
 				        </form>
+				        <div>
+				            <span>
+				                 <s:property value="#session.loginUser.name" default="客官"/>,您在<s:property value="#session.month"/>月的考勤记录如下表
+				            </span>
+				        </div>
 				        <table class="stripe">
 				            <tr>
 				                <th>考勤Email</th>

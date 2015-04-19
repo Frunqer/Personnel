@@ -7,4 +7,29 @@ $(document).ready(function() {
 		$(this).removeClass("over");
 	}) // 移除该行的class
 	$(".stripe tr:even").addClass("alt");
+	
+	
+	//获取当前月份
+	var objectDate = new Date();
+	var month = objectDate.getMonth()+1;
+	month = month>10?month:"0"+month;
+	$(".monthSelect").val(month);
+	
+	$(".checkin_search").click(function(){
+		var month = $(".monthSelect").val();
+		ZENG.msgbox.show(" 正在加载中，请稍后...", 6, 10000);
+		$.ajax({
+			type:"POST",
+			url:"checkin.action",
+			data:{
+				month:month,
+				action:"list",
+				type:"sync"
+			},
+			success:function(){
+				 ZENG.msgbox.hide();
+				window.location.reload();
+			}
+		})
+	})
 });

@@ -64,7 +64,6 @@ $(function(){
     					            message:"登录成功",
     					            dragOut:false,
     					            handler:function(){
-
     					                /*页面初始化的时候向后台*/
     					            	window.location.href="notice.action?action=top";
     					            }
@@ -195,7 +194,7 @@ $(function(){
     });
     
     function go(){
-    	window.location.href="http://www.baidu.com";//跳转到首页
+    	window.location.href="notice.action?action=top";//跳转到首页
     }
     var wait = 60;
     var timer;

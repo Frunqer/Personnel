@@ -55,6 +55,13 @@ public class RegisterDaoImpl implements IRegisterDao {
                 new int[] { Types.VARCHAR }, new UserRowMapper());
 
     }
+    
+    @Override
+    public int isExist(String email) {
+        String sql = "select count(*) from core_user where email=?";
+        
+        return jdbcTemplate.queryForInt(sql, new Object[]{email},new int[]{Types.VARCHAR});
+    }
 
     class UserRowMapper implements RowMapper<UserInfo> {
 
@@ -76,7 +83,6 @@ public class RegisterDaoImpl implements IRegisterDao {
                 userInfo.setMobile(rs.getString("mobile"));
                 userInfo.setQq(rs.getString("qq"));
                 userInfo.setPolicies(rs.getString("policies"));
-
                 return userInfo;
             } else {
                 return null;
@@ -84,5 +90,9 @@ public class RegisterDaoImpl implements IRegisterDao {
         }
 
     }
+
+
+
+    
 
 }
