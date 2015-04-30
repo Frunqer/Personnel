@@ -11,7 +11,6 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.personnel.bean.user.Checkin;
 import com.personnel.dao.ICheckinDao;
-import com.sun.faces.mgbean.ManagedBeanPreProcessingException.Type;
 
 public class CheckDaoImpl implements ICheckinDao {
     private Logger logger = Logger.getLogger(CheckDaoImpl.class);

@@ -18,28 +18,10 @@
                 <prop key="mail.smtp.auth">true</prop>
            </props>
         </property>
-    </bean>
-    <!-- 
-       目前我用过的EMAIL账号都是网易的,下面列出网易的SMTP服务器名和端口号:
-        网易邮箱          SMTP服务器     SMTP端口     POP3服务器       POP3端口
-        @126.com     smtp.126.com      25          pop3.126.com      110
-        @163.com     smtp.163.com      25          pop3.163.com      110
-        @yeah.net    smtp.yeah.net      25          pop3.yeah.net     110
-    -->
-    
+    </bean> 
     <bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage">
         <!-- 发件人email -->
         <property name="from" value="zzjmay@163.com" />
-        <!-- 
-         收件人email
-        <property name="to" value="to@yeah.net" />
-        email主题(标题)
-        <property name="subject" value="Subject" />
-        email主题内容
-        <property name="text">
-          <value>ContentText</value>
-        </property>
-        -->
     </bean>
     <!-- 用于发送邮件的类 -->
     <bean id="simpleMail" class="com.personnel.utils.Email">

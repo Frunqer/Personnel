@@ -217,7 +217,7 @@ $(function(){
     			email:email
     		},
     		success:function(data){
-    			callSucceedDialog("验证码为："+data);
+    			callSucceedDialog("验证码已发邮箱");
     		}
     	});
     });
