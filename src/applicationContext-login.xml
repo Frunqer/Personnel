@@ -24,6 +24,9 @@
         <property name="codeDao">
             <ref local="codeDao" />
         </property>
+        <property name="sendEmail">
+        	<ref local="simpleMail"/>
+        </property>
     </bean>
 	
 	<!-- 配置注册Service -->
