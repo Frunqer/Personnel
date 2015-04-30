@@ -13,9 +13,9 @@
   <!-- 通过spring去加载C3P0的数据库-->
 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"> 
     <property name="driverClass" value="com.mysql.jdbc.Driver" /> 
-    <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/personnel" /> 
+    <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/personnel?useUnicode=true&amp;characterEncoding=UTF-8" /> 
     <property name="user" value="root" /> 
-    <property name="password" value="935800" /> 
+    <property name="password" value="root" /> 
     <!-- 连接池启动时的初始值 --> 
     <property name="initialPoolSize" value="5" /> 
     <!-- 连接池的最大值 --> 
@@ -43,8 +43,7 @@
     </property>
  </bean>
  
- <import resource="applicationContext-login.xml"/> 
- <import resource="applicationContext-home.xml"/>  
- <import resource="applicationContext-menulist.xml"/>    
+ <import resource="applicationContext-*.xml"/> 
+  
   
 </beans>  
