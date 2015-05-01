@@ -17,3 +17,42 @@ table.stripe tr td{ height:28px; line-height:28px; text-align:center;background:
 table.stripe tr.alt td { background:#F2F2F2;} 
 /* css 注释：默认隔行背景颜色 */ 
 table.stripe tr.over td {background:#EEECEB;} 
+
+/*打卡机的样式*/
+
+.checkin_info{
+	display: table;
+	width：70%;
+	height: auto;
+	margin:50px auto;
+}
+
+.checkin_border{
+	display: inline-block;
+	width: 104px;
+	height: 104px;
+	background-color:#fff2cc;
+	border-radius:0.5em;
+	text-align: center;
+	vertical-align: middle;
+	font:40px/104px arial;
+}
+.spilt{
+	display:inline-block;
+	font:30px/104px arial;
+	margin: 0px 15px;
+}
+.checkin_btn{
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	width: 100px;
+	height: 35px;
+	font: 20px/35px "微软雅黑";
+	text-decoration: none;
+	border-radius:0.5em;
+	float: right;
+	margin-top: 30px;
+	
+}
+

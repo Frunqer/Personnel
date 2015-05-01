@@ -52,52 +52,19 @@
 			<div class="home_right right_bg ">
 				<!-- 面包屑导航  -->
 				<span class="spantxt"><a href="home/home.jsp">首页</a> ->
-					考勤列表</span>
-				<div id="info">
-				        <form>
-				            <select id="month" class="monthSelect">
-				                <option value="01">1月</option>
-				                <option value="02">2月</option>
-				                <option value="03">3月</option>
-				                <option value="04">4月</option>
-				                <option value="05">5月</option>
-				                <option value="06">6月</option>
-				                <option value="07">7月</option>
-				                <option value="08">8月</option>
-				                <option value="09">9月</option>
-				                <option value="10">10月</option>
-				                <option value="11">11月</option>
-				                <option value="12">12月</option>
-				            </select>
-				            <input type="button" class="btn checkin_search" value="搜  索">
-				        </form>
-				        <div>
-				            <span class="spantxt">
-				                 <s:property value="#session.loginUser.name" default="客官"/>,您在<s:property value="#session.month"/>月的考勤记录如下表
-				            </span>
-				        </div>
-				        <table class="stripe">
-				            <tr>
-				                <th>考勤Email</th>
-				                <th>上班打卡</th>
-				                <th>下班打卡</th>
-				                <th>上班状态</th>
-				                <th>下班状态</th>
-				                <th>考勤状态</th>
-				            </tr>
-				            <s:iterator value="#session.checkinList" var="checkin">
-				              <tr>
-                                <td><s:property  value="email"/></td>
-                                <td><s:date name="check_morning" format="yy-MM-dd HH:mm:ss"/></td>
-                                <td><s:date name="check_night" format="yy-MM-dd HH:mm:ss"/></td>
-                                <td><s:property  value="morning_status"/></td>
-                                <td><s:property  value="night_status"/></td>
-                                <td><s:property  value="status"/></td>
-                             </tr>
-				            </s:iterator>
-				           
-				        </table>
-				</div>
+					打卡机</span>
+				
+				<!-- 打卡机主体结束  -->
+			    <div class="checkin_info">
+			    	<span class="checkin_border hour" id="hour"></span>
+			    	<span class="spilt">:</span>
+			    	<span class="checkin_border minute" id="minute"></span>
+			    	<span class="spilt">:</span>
+			    	<span class="checkin_border second" id="second"></span>
+			    
+			    	<div><a href="checkin.action?action=daka" class="btn checkin_btn">打  卡</a></div>
+			    </div>
+				<!-- 打卡机主体部分结束 -->
 			</div>
 		</div>
 		<!-- 版权标识层 -->
@@ -112,6 +79,13 @@
 	  function edit(){
 	      window.location.href="basicinfo/basicInfo.jsp";
 	  }
+	  function timeClock(){
+		  var d = new Date();
+		  document.getElementById("hour").innerHTML = d.getHours();
+		  document.getElementById("minute").innerHTML = d.getMinutes();
+		  document.getElementById("second").innerHTML = d.getSeconds();
+	  }
+	  window.setInterval(timeClock, 1000);
 	</script>
 </body>
 </html>

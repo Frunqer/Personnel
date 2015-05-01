@@ -32,4 +32,10 @@ $(document).ready(function() {
 			}
 		})
 	})
+	
+	//时钟效果
+	var date = new Date();
+	$(".hour").html(date.getHours());
+	$(".minute").html(date.getMinutes());
+	$(".second").html(date.getSeconds());
 });

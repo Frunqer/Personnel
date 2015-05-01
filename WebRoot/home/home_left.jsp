@@ -56,7 +56,7 @@
 					<s:elseif test="#session.menuLevel ==3">
 						<li><a href="checkin.action?action=list">考 勤 记 录</a>
 						</li>
-						<li><a href="#">打   卡   机</a>
+						<li><a href="checkin/checkinCard.jsp">打   卡   机</a>
 						</li>
 						<li><a href="#">请 假 申 请</a>
 						</li>

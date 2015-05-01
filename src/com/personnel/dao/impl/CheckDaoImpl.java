@@ -45,12 +45,12 @@ public class CheckDaoImpl implements ICheckinDao {
         logger.info("更新打卡记录");
         String sql = "update core_checkin"
                 + month
-                + " set check_night=?,night_status=? where email=? and weekday=?";
+                + " set check_night=?,night_status=?,status=? where email=? and weekday=?";
         return jdbcTemplate.update(
                 sql,
-                new Object[] { checkin.getCheck_night(),checkin.getNight_status(),
+                new Object[] { checkin.getCheck_night(),checkin.getNight_status(),checkin.getStatus(),
                         checkin.getEmail(),
-                        checkin.getWeekday() }, new int[] { Types.TIMESTAMP,Types.VARCHAR,
+                        checkin.getWeekday() }, new int[] { Types.TIMESTAMP,Types.VARCHAR,Types.VARCHAR,
                         Types.VARCHAR, Types.INTEGER });
     }
 

@@ -169,7 +169,7 @@ public class CheckinAction extends MyActionSupport {
 			return ;
 		}
 		
-		if(checkin.getMorning_status().equals("异常")||checkin.getNight_status().equals("异常")){
+		if(checkin.getMorning_status().equals("早退")||checkin.getNight_status().equals("早退")){
 			//标记为异常
 			checkin.setStatus("异常");
 			checkinDao.updateCheckin(checkin, month);
